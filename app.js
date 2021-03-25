@@ -1,7 +1,8 @@
 const app = require("express")();
 const sha1 = require("sha1");
 
-app.get((req, res, next) => {
+app.use((req, res, next) => {
+    console.log(req.method)
     const { signature, timestamp, nonce, echostr } = req.query;
     const token = "wxfwh_Token";
     const arrSort = [token, timestamp, nonce];
@@ -16,4 +17,4 @@ app.get((req, res, next) => {
     }
 });
 
-app.listen(80, () => console.log("80端口号成功运行"));
+app.listen(8000, () => console.log("8000端口号成功运行"));
